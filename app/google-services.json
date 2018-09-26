@@ -1,35 +1,27 @@
 {
   "project_info": {
-    "project_number": "121721473398",
-    "firebase_url": "https://nyaradzowalkathon.firebaseio.com",
-    "project_id": "nyaradzowalkathon",
-    "storage_bucket": "nyaradzowalkathon.appspot.com"
+    "project_number": "903457782340",
+    "firebase_url": "https://walkerthone-2018.firebaseio.com",
+    "project_id": "walkerthone-2018",
+    "storage_bucket": "walkerthone-2018.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:121721473398:android:0177c426c848a927",
+        "mobilesdk_app_id": "1:903457782340:android:0177c426c848a927",
         "android_client_info": {
           "package_name": "com.whitney.nyaradzowalkathon"
         }
       },
       "oauth_client": [
         {
-          "client_id": "121721473398-62idjle5l6q6shltptiebsjt2fp2v8sn.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.whitney.nyaradzowalkathon",
-            "certificate_hash": "6b666876e1f16afa146950eed95fcf5285221876"
-          }
-        },
-        {
-          "client_id": "121721473398-cq6k0mhg62i2j2q16jpb06l3if7bf0lc.apps.googleusercontent.com",
+          "client_id": "903457782340-b1ukjr3het67h0ki8q17gpjkl1frt03n.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCWz-i0a1QqBRSBpDbKGMIrHPUUPjAoHPo"
+          "current_key": "AIzaSyDZHem5pvCPcD42LgYzsDYSFWsgx3zebJI"
         }
       ],
       "services": {
@@ -37,13 +29,8 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 2,
-          "other_platform_oauth_client": [
-            {
-              "client_id": "121721473398-cq6k0mhg62i2j2q16jpb06l3if7bf0lc.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "status": 1,
+          "other_platform_oauth_client": []
         },
         "ads_service": {
           "status": 2

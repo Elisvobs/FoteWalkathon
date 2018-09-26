@@ -33,4 +33,6 @@
     <string name="action_logout">Logout</string>
     <string name="update">Update</string>
     <string name="reg">REGISTER</string>
+    <string name="female">Female</string>
+    <string name="male">Male</string>
 </resources>

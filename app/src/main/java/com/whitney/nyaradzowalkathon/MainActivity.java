@@ -1,6 +1,7 @@
 package com.whitney.nyaradzowalkathon;
 
 import android.os.Bundle;
+import android.support.annotation.IdRes;
 import android.support.annotation.NonNull;
 import android.support.design.button.MaterialButton;
 import android.support.design.widget.TextInputEditText;
@@ -10,7 +11,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,13 +28,12 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
     @BindView(R.id.regBtn) MaterialButton mButton;
-    @BindView(R.id.txt_user) TextView txtDetails;
-    TextInputEditText nameField, phoneField, emergencyField,
-            emailField, nationalityField, companyField;
-    Spinner genderSpinner, shirtSizeSpinner;
+    @BindView(R.id.sex) RadioGroup radioGroup;
+    @BindView(R.id.shirtSize) Spinner mSpinner;
+    TextInputEditText nameField, phoneField, emergencyField, emailField, nationalityField, companyField;
+    RadioButton radioButton;
 
     private static final String TAG = MainActivity.class.getSimpleName();
-    public static final String[] gender = {"", "Female", "Male"};
     public static final String[] sizes = {"", "Small", "Medium", "Large", "XLarge"};
     private String userId;
     private DatabaseReference mFirebaseDatabase;
@@ -54,37 +55,25 @@ public class MainActivity extends AppCompatActivity {
 
         nameField = findViewById(R.id.nameText);
         phoneField = findViewById(R.id.phoneText);
-        genderSpinner = findViewById(R.id.spinner);
-        shirtSizeSpinner = findViewById(R.id.shirtSize);
         emergencyField = findViewById(R.id.emergencyText);
         emailField = findViewById(R.id.emailText);
         nationalityField = findViewById(R.id.nationalityText);
         companyField = findViewById(R.id.companyText);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
-                android.R.layout.simple_dropdown_item_1line, gender);
-        genderSpinner.setAdapter(adapter);
-        genderSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long l) {
-                // did not see it fit to show toast but to get the value selected to DB
-                Toast.makeText(getBaseContext(), parent.getItemAtPosition(position)
-                        +" gender", Toast.LENGTH_SHORT);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
+            public void onCheckedChanged(RadioGroup radioGroup, @IdRes int checkedId) {
+                radioButton = radioGroup.findViewById(checkedId);
             }
         });
 
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this,
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_dropdown_item_1line, sizes);
-        shirtSizeSpinner.setAdapter(arrayAdapter);
-        shirtSizeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        mSpinner.setAdapter(adapter);
+        mSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(getBaseContext(), adapterView.getItemAtPosition(i)
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
+                Toast.makeText(getBaseContext(), adapterView.getItemAtPosition(position)
                         +" shirtSize", Toast.LENGTH_SHORT);
             }
 
@@ -97,12 +86,10 @@ public class MainActivity extends AppCompatActivity {
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                TextView textView = (TextView) genderSpinner.getSelectedView();
-                TextView textView1 = (TextView) shirtSizeSpinner.getSelectedView();
-
+                TextView textView1 = (TextView) mSpinner.getSelectedView();
                 String name = nameField.getEditableText().toString().trim();
                 String phone = phoneField.getEditableText().toString().trim();
-                String gender = textView.getText().toString();
+                String gender = radioButton.getText().toString();
                 String shirtSize = textView1.getText().toString();
                 String emergency = emergencyField.getEditableText().toString().trim();
                 String email = emailField.getEditableText().toString().trim();
@@ -113,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
                         nationality, company);
             }
         });
-        toggleButton();
+//        toggleButton();
     }
 
     private void checkUserId(String name, String phone, String gender, String email, String company,
@@ -126,13 +113,13 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void toggleButton() {
-        if (TextUtils.isEmpty(userId)) {
-            mButton.setText(R.string.save);
-        } else {
-            mButton.setText(R.string.update);
-        }
-    }
+//    private void toggleButton() {
+//        if (TextUtils.isEmpty(userId)) {
+//            mButton.setText(R.string.save);
+//        } else {
+//            mButton.setText(R.string.update);
+//        }
+//    }
 
     private void updateUser(String name, String phone, String gender, String shirtSize,
                             String emergency, String nationality, String company, String email) {
@@ -141,22 +128,22 @@ public class MainActivity extends AppCompatActivity {
             mFirebaseDatabase.child(userId).child("Name").setValue(name);
 
         if (!TextUtils.isEmpty(phone))
-            mFirebaseDatabase.child(userId).child("Phone").setValue(email);
+            mFirebaseDatabase.child(userId).child("Phone").setValue(phone);
 
         if (!TextUtils.isEmpty(gender))
-            mFirebaseDatabase.child(userId).child("Gender").setValue(email);
+            mFirebaseDatabase.child(userId).child("Gender").setValue(gender);
 
         if (!TextUtils.isEmpty(shirtSize))
-            mFirebaseDatabase.child(userId).child("T-shirt Size").setValue(email);
+            mFirebaseDatabase.child(userId).child("T-shirt Size").setValue(shirtSize);
 
         if (!TextUtils.isEmpty(emergency))
-            mFirebaseDatabase.child(userId).child("Emergency Contact").setValue(email);
+            mFirebaseDatabase.child(userId).child("Emergency Contact").setValue(emergency);
 
         if (!TextUtils.isEmpty(nationality))
-            mFirebaseDatabase.child(userId).child("Nationality").setValue(email);
+            mFirebaseDatabase.child(userId).child("Nationality").setValue(nationality);
 
         if (!TextUtils.isEmpty(company))
-            mFirebaseDatabase.child(userId).child("Company").setValue(email);
+            mFirebaseDatabase.child(userId).child("Company").setValue(company);
 
         if (!TextUtils.isEmpty(email))
             mFirebaseDatabase.child(userId).child("Email").setValue(email);
@@ -188,21 +175,8 @@ public class MainActivity extends AppCompatActivity {
                 Log.e(TAG, String.format("User data is changed!%s, %s%s%s", user.name,
                         user.email, user.gender, user.phone));
 
-                // Display newly updated name and email
-                txtDetails.setText(String.format("%s%s%s%s%s%s%s%s", user.name, user.email,
-                        user.phone, user.gender, user.company, user.emergency,
-                        user.nationality, user.shirtSize));
-
-                // clear edit text
-                nameField.setText("");
-                emailField.setText("");
-                emergencyField.setText("");
-                nationalityField.setText("");
-                phoneField.setText("");
-                companyField.setText("");
-                // add method to clear selected spinner
-
-                toggleButton();
+                clearSetValues();
+//                toggleButton();
             }
 
             @Override
@@ -211,5 +185,17 @@ public class MainActivity extends AppCompatActivity {
                 Log.e(TAG, "Failed to read user", error.toException());
             }
         });
+    }
+
+    private void clearSetValues() {
+        nameField.getEditableText().clear();
+        phoneField.getEditableText().clear();
+        radioGroup.clearCheck();
+        emergencyField.getEditableText().clear();
+        nationalityField.getEditableText().clear();
+        mSpinner.setAdapter(new ArrayAdapter<>(MainActivity.this,
+                android.R.layout.simple_dropdown_item_1line, sizes));
+        companyField.getEditableText().clear();
+        emailField.getEditableText().clear();
     }
 }
