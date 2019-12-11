@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Trees"
+    android:padding="20dp"
+    android:orientation="vertical"
+    android:id="@+id/linear"
+    android:background="@drawable/about_back">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:text="We are planning to plant 120 000 trees this year, and our tree of the year is : "
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+
+    <ListView
+        android:layout_marginTop="10dp"
+        android:id="@+id/tree"
+        android:layout_width="match_parent"
+        android:background="#df12eaff"
+        android:layout_height="wrap_content"
+        android:divider="@color/white"
+        android:dividerHeight="5dip"></ListView>
+
+</LinearLayout>

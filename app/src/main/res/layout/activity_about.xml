@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".About"
+    android:background="@drawable/about_back"
+    android:padding="40dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#dfffffff"
+        android:padding="20dp">
+
+        <ImageView
+            android:id="@+id/image1"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/logo"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/image1"
+            android:layout_marginTop="10dp"
+            android:text="The 2018 Friends of the Environment will be hosting the 9th Edition of the Walkathon. The 2018 walkathon will be from Cross-Dete to Binga covering a distance of 150km. The walk will be held from Tuesday 27 November 2018 to 30 November 2018 and will be capped by the official unveiling of Siabuwa High School Tree Seedling Nursery in Binga sponsored by Old Mutual. A total of 120 000 trees will be planted during this year’s walkathon."
+            android:textColor="@color/colorPrimary" />
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

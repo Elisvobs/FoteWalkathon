@@ -1,4 +1,4 @@
-package com.whitney.nyaradzowalkathon;
+package com.whitney.nyaradzowalkathon.models;
 
 import com.google.firebase.database.IgnoreExtraProperties;
 

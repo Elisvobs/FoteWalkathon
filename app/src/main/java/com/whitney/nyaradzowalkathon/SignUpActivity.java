@@ -1,14 +1,13 @@
 package com.whitney.nyaradzowalkathon;
 
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -17,7 +16,6 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class SignUpActivity extends AppCompatActivity {
     private EditText emailEditText, passwordEditText;
-    private Button signUpButton;
     private FirebaseAuth mFirebaseAuth;
 
     @Override
@@ -28,7 +26,7 @@ public class SignUpActivity extends AppCompatActivity {
         mFirebaseAuth = FirebaseAuth.getInstance();
         emailEditText = findViewById(R.id.emailField1);
         passwordEditText = findViewById(R.id.passwordField1);
-        signUpButton = findViewById(R.id.signupButton);
+        Button signUpButton = findViewById(R.id.signupButton);
 
         signUpButton.setOnClickListener(new View.OnClickListener() {
             @Override

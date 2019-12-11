@@ -26,13 +26,19 @@
 
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
                 android:layout_marginBottom="4dp"
                 android:contentDescription="@null"
-                android:layout_gravity="center"
                 android:scaleType="fitCenter"
-                app:srcCompat="@drawable/foten"/>
+                app:srcCompat="@drawable/foten" />
+
+            <TextView
+                android:id="@+id/txt_user"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp" />
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
@@ -63,41 +69,15 @@
                 android:textSize="18sp"
                 android:textColor="#000000"/>
 
-            <TextView
-                android:layout_width="wrap_content"
+            <Spinner
+                android:id="@+id/spinner"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingBottom="8dp"
-                android:paddingStart="8dp"
-                android:paddingEnd="8dp"
-                android:text="@string/gender"
-                android:textSize="18sp"
-                android:textColor="#000000"/>
-
-            <RadioGroup
-                android:id="@+id/sex"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:minWidth="30dp">
-
-                <RadioButton
-                    android:id="@+id/female"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginRight="16dp"
-                    android:text="@string/female"
-                    android:textSize="18sp"/>
-
-                <RadioButton
-                    android:id="@+id/male"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginLeft="16dp"
-                    android:text="@string/male"
-                    android:textSize="18sp"/>
-            </RadioGroup>
+                android:layout_marginBottom="8dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginLeft="4dp"
+                android:layout_gravity="start"
+                android:textSize="18sp"/>
 
             <TextView
                 android:id="@+id/shirtSizeText"
