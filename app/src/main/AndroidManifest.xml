@@ -16,8 +16,7 @@
         android:label="@string/app_name"
         android:icon="@drawable/nyaradzo"
         android:allowBackup="true"
-        tools:ignore="GoogleAppIndexingWarning"
-        android:fullBackupContent="">
+        tools:ignore="GoogleAppIndexingWarning">
 
         <activity
             android:name=".MainActivity"
