@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "903457782340",
+    "firebase_url": "https://walkerthone-2018.firebaseio.com",
+    "project_id": "walkerthone-2018",
+    "storage_bucket": "walkerthone-2018.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:903457782340:android:0177c426c848a927",
+        "android_client_info": {
+          "package_name": "com.whitney.nyaradzowalkathon"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "903457782340-b1ukjr3het67h0ki8q17gpjkl1frt03n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDZHem5pvCPcD42LgYzsDYSFWsgx3zebJI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
